@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { MainLayout } from './layouts/main-layout/main-layout';
 import { Home } from './pages/home/home';
+import { sobre } from './pages/sobre/sobre';
 import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
@@ -11,6 +12,14 @@ export const routes: Routes = [
     component: MainLayout,
     children: [
       { path: '', component: Home },
+    ]
+  },
+
+  {
+    path: '',
+    component: MainLayout,
+    children: [
+      { path: 'sobre', component: sobre },
     ]
   },
 
