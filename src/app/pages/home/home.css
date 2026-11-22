@@ -2,23 +2,3 @@ h1 {
   color: blueviolet;
 }
 
-.lista {
-  width: 80%;
-  border-collapse: collapse;
-}
-.lista th,
-.lista td {
-  border: 1px solid black;
-  padding: 10px 12px;
-  text-align: left;
-}
-
-.lista th {
-  background-color: #f4f4f4;
-  font-weight: bold;
-}
-
-.lista h3 {
-    text-align: center;
-    background-color: black;
-}

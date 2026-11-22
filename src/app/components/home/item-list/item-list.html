@@ -1,0 +1,36 @@
+<table class="lista">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Quantidade</th>
+      <th>Categoria</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (item of itens(); track item.nome) {
+      <tr [class.comprado]="item.depositado">
+        <td class="nome">{{ item.nome | titlecase }}</td>
+        <td class="preco">{{ item.quantidade }}</td>
+        <td class="categoria">{{ item.categoria }}</td>
+
+        <td>
+          <button (click)="alternarItem.emit(item)">
+            @if (item.depositado) {
+              Depositado
+            } @else {
+              Não depositado
+            }
+          </button>
+
+          <button class="remover" (click)="removerItem.emit(item)">x</button>
+        </td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="4" style="text-align: center;">Sua lista está vazia.</td>
+      </tr>
+    }
+  </tbody>
+</table>

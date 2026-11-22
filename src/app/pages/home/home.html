@@ -1,56 +1,15 @@
 <main class="app">
   <h1>Minha Lista de reciclagem</h1>
+
   <p class="data">Hoje: {{ hoje | date: 'dd/MM/yyyy' }}</p>
-  <form class="form" (ngSubmit)="adicionar()">
-    <input [(ngModel)]="novoItem" name="nome" placeholder="O que falta adicionar" />
-    <input [(ngModel)]="novoQuant" name="quantidade" type="number" placeholder="quantidade" />
-    <select [(ngModel)]="novaCat" name="categoria" id="">
-      <option value="" selected>Escolha uma opção</option>
-      <option value="Papel">Papel</option>
-      <option value="Plástico">Plástico</option>
-      <option value="Vidro">Vidro</option>
-      <option value="Metal">Metal</option>
-      <option value="Madeira">Madeira</option>
-      <option value="Eletrônicos">Eletrônicos</option>
-      <option value="Óleo">Óleo</option>
-    </select>
-    <button type="submit">Adicionar</button>
-  </form>
+
+  <app-item-form (adicionarItem)="adicionar($event)" />
 
   <p class="resumo">{{ progresso() | percent }} depositado | Total: {{ total() }} Item/Itens</p>
 
-  <table class="lista">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Quantidade</th>
-        <th>Categoria</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (item of itens(); track item.nome) {
-        <tr [class.comprado]="item.depositado">
-          <td class="nome">{{ item.nome | titlecase }}</td>
-          <td class="preco">{{ item.quantidade }}</td>
-          <td class="categoria">{{ item.categoria }}</td>
-          <td>
-          <button (click)="alternar(item)">
-            @if (item.depositado) {
-              Depositado
-            } @else {
-              Não depositado
-            }
-          </button>
-          <button class="remover" (click)="remover(item)">x</button>
-        </td>
-
-    </tr>
-    } @empty {
-        <tr>
-            Sua lista está vazia.
-        </tr>
-    }
-    </tbody>
-  </table>
+  <app-item-list
+    [itens]="itens()"
+    (alternarItem)="alternar($event)"
+    (removerItem)="remover($event)"
+  />
 </main>
