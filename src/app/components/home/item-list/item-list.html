@@ -9,7 +9,7 @@
   </thead>
 
   <tbody>
-    @for (item of itens(); track item.nome) {
+    @for (item of itensVisiveis(); track item.nome) {
       <tr [class.comprado]="item.depositado">
         <td class="nome">{{ item.nome | titlecase }}</td>
         <td class="preco">{{ item.quantidade }}</td>

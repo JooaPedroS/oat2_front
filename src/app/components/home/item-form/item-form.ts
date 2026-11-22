@@ -23,7 +23,8 @@ export class ItemForm {
       nome: this.novoItem,
       quantidade: this.novoQuant,
       categoria: this.novaCat,
-      depositado: false,
+      depositado: false, //sempre falso
+      visivel: true, // sempre verdadeiro
     };
 
     this.adicionarItem.emit(novo);

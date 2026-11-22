@@ -7,9 +7,11 @@ import { ItemService, Item } from '../../services/item.service';
 import { ItemForm } from '../../components/home/item-form/item-form';
 import { ItemList } from '../../components/home/item-list/item-list';
 
+import { TrashMap } from '../../components/trash-map/trash-map';
+
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, ItemForm, ItemList],
+  imports: [CommonModule, ItemForm, ItemList, TrashMap],
   styleUrl: './home.css',
   templateUrl: './home.html',
 })
@@ -41,17 +43,28 @@ export class Home {
   }
 
   remover(alvo: Item) {
-    this.itens.update((lista) => lista.filter((i) => i !== alvo));
+    // talvez eu coloque algo para não apagar nunca e só ficar oculto...
+
+    // ele vai remover se o item não for depositado
+    // se não for depositado, ele vai ficar oculto (assim o item não vai ser apagado e poderá ser gerado um relatório depois)
+    this.itens.update((lista) =>
+      lista
+        .map((i) => (i === alvo && i.depositado ? { ...i, visivel: false } : i))
+        .filter((i) => i !== alvo || i.depositado),
+    );
 
     this.itemService.salvar(this.itens());
   }
 
   total() {
-    return this.itens().reduce((soma, i) => soma + i.quantidade, 0);
+    // busca apenas os visiveis
+    return this.itens()
+      .filter((i) => i.visivel)
+      .reduce((soma, i) => soma + i.quantidade, 0);
   }
 
   progresso() {
-    const lista = this.itens();
+    const lista = this.itens().filter((i) => i.visivel);
 
     if (lista.length === 0) return 0;
 
