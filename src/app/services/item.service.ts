@@ -14,9 +14,8 @@ export class ItemService {
   private chave = 'itens';
 
   private itensIniciais: Item[] = [
-    { nome: 'Sacola', quantidade: 6, categoria: 'plástico', depositado: false },
-    { nome: 'Garrafas de Vidro', quantidade: 8, categoria: 'vidro', depositado: false },
-    { nome: 'Latas de Oleo', quantidade: 5, categoria: 'metal', depositado: true },
+    // para testes, fiquei com preguiça de tirar do código, então zerei a lista de itens iniciais
+    { nome: 'Embalagem do Boneco do Luccas Neto', quantidade: 10000, categoria: 'plástico', depositado: false },
   ];
 
   // Busca os dados
@@ -27,7 +26,7 @@ export class ItemService {
       try {
         return JSON.parse(dados);
       } catch {
-        return this.itensIniciais;
+        return this.itensIniciais;  // vai retornar uma lista vazia no fim do projeto
       }
     }
 
@@ -42,7 +41,8 @@ export class ItemService {
 
   // Adiciona um item
   adicionar(item: Item): void {
-    const itens = this.buscarTodos();
+    const itens = this.buscarTodos(); 
+    // decidi que não vai ter tratamento, o usuario poderá adicioonar a mesma coisa varias vezes
     itens.push(item);
     this.salvar(itens);
   }

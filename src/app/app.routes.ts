@@ -6,25 +6,19 @@ import { sobre } from './pages/sobre/sobre';
 import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
-
   {
     path: '',
     component: MainLayout,
-    children: [
-      { path: '', component: Home },
-    ]
+    children: [{ path: '', component: Home, title: 'Página inicial' }],
   },
 
   {
     path: '',
     component: MainLayout,
-    children: [
-      { path: 'sobre', component: sobre },
-    ]
+    children: [{ path: 'sobre', component: sobre }],
   },
 
-  { path: '**', component: NotFound },
 
-  { path: '**', redirectTo: '404' }
-
+  { path: '**', component: NotFound }, //notfound, porque eu gosto
+  { path: '**', redirectTo: '404' },
 ];
