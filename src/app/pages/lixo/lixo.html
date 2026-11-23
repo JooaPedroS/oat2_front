@@ -1,0 +1,21 @@
+<main class="app">
+  <header>
+  <h1>Lista de Reciclagem</h1>
+  <a routerLink="/">Voltar...</a>
+</header>
+  
+
+  <p class="data">Hoje: {{ hoje | date: 'dd/MM/yyyy' }}</p>
+
+  <app-item-form (adicionarItem)="adicionar($event)" />
+
+  <p class="resumo">{{ progresso() | percent }} depositado | Total: {{ total() }} Item/Itens</p>
+
+  <app-item-list
+    [itens]="itens()"
+    (alternarItem)="alternar($event)"
+    (removerItem)="remover($event)"
+  />
+
+  <app-trash-map [itens]="itens()" />
+</main>

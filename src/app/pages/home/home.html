@@ -1,17 +1,11 @@
 <main class="app">
-  <h1>Minha Lista de reciclagem</h1>
-
-  <p class="data">Hoje: {{ hoje | date: 'dd/MM/yyyy' }}</p>
-
-  <app-item-form (adicionarItem)="adicionar($event)" />
-
-  <p class="resumo">{{ progresso() | percent }} depositado | Total: {{ total() }} Item/Itens</p>
-
-  <app-item-list
-    [itens]="itens()"
-    (alternarItem)="alternar($event)"
-    (removerItem)="remover($event)"
-  />
-
-  <app-trash-map [itens]="itens()" />
+  <header>
+    <h1>Painel de Controle</h1>
+    <p>Olá, {{ username }}!</p>
+    <a routerLink="/lixo">Gerenciador de Lixo</a>
+    |
+    <a routerLink="/gastos">Gastos (energia/água)</a>
+    |
+    <a routerLink="/metas">Metas</a>
+  </header>
 </main>

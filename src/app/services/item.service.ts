@@ -60,4 +60,19 @@ export class ItemService {
 
     this.salvar(itens);
   }
+
+  total() {
+    // busca apenas os visiveis
+    return this.buscarTodos()
+      .filter((i) => i.visivel)
+      .reduce((soma, i) => soma + i.quantidade, 0);
+  }
+
+  progresso() {
+    const lista = this.buscarTodos().filter((i) => i.visivel);
+
+    if (lista.length === 0) return 0;
+
+    return lista.filter((i) => i.depositado).length / lista.length;
+  }
 }
