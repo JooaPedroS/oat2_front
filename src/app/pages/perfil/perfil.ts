@@ -16,8 +16,8 @@ export class Perfil {
   username = this.userService.get();
 
   depositados = this.itemService.buscarTodos().filter((i) => i.depositado).length
-    
 
+  //fução de sair do login atual
   sair() {
   localStorage.removeItem('username');
   this.router.navigate(['/register']);
