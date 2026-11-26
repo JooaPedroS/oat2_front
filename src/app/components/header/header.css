@@ -1,0 +1,25 @@
+.navbar-eco {
+  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(27, 67, 50, .12);
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.navbar-brand:hover {
+  color: #95d5b2;
+}
+
+.nav-link {
+  color: #d8f3dc;
+  transition: .2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #95d5b2;
+}

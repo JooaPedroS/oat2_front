@@ -1,21 +1,29 @@
 <main class="app">
-  <header>
-  <h1>Lista de Reciclagem</h1>
-  <a class="back" routerLink="/">Voltar...</a>
-</header>
-  
+  <header class="hero">
+    <div>
+      <span class="hero-tag">♻️ EcoApp</span>
+      <h1>Lista de Reciclagem</h1>
+      <p>Acompanhe seus itens recicláveis.</p>
+    </div>
 
-  <p class="data">Hoje: {{ hoje | date: 'dd/MM/yyyy' }}</p>
-
-  <app-item-form (adicionarItem)="adicionar($event)" />
+    <a class="back" routerLink="/">← Voltar</a>
+  </header>
 
   <p class="resumo">{{ progresso() | percent }} depositado | Total: {{ total() }} Item/Itens</p>
 
-  <app-item-list
-    [itens]="itens()"
-    (alternarItem)="alternar($event)"
-    (removerItem)="remover($event)"
-  />
+  <section class="panel">
+    <app-item-form (adicionarItem)="adicionar($event)" />
+  </section>
 
-  <app-trash-map [itens]="itens()" />
+  <section class="panel">
+    <app-item-list
+      [itens]="itens()"
+      (alternarItem)="alternar($event)"
+      (removerItem)="remover($event)"
+    />
+  </section>
+
+  <section class="panel">
+    <app-trash-map [itens]="itens()" />
+  </section>
 </main>

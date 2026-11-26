@@ -1,36 +1,59 @@
-<table class="lista">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Quantidade</th>
-      <th>Categoria</th>
-      <th>Ações</th>
-    </tr>
-  </thead>
+<div class="tabela-wrap">
 
-  <tbody>
-    @for (item of itensVisiveis(); track item.nome) {
-      <tr [class.comprado]="item.depositado">
-        <td class="nome">{{ item.nome | titlecase }}</td>
-        <td class="preco">{{ item.quantidade }}</td>
-        <td class="categoria">{{ item.categoria }}</td>
+  <table class="lista table align-middle">
 
-        <td>
-          <button class="alternar" (click)="alternarItem.emit(item)">
-            @if (item.depositado) {
-              Depositado
-            } @else {
-              Não depositado
-            }
-          </button>
-
-          <button class="remover" (click)="removerItem.emit(item)">x</button>
-        </td>
-      </tr>
-    } @empty {
+    <thead>
       <tr>
-        <td colspan="4" style="text-align: center;">Sua lista está vazia.</td>
+        <th>Nome</th>
+        <th>Qtd.</th>
+        <th>Categoria</th>
+        <th class="acoes-col">Ações</th>
       </tr>
-    }
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      @for (item of itensVisiveis(); track item.nome) {
+        <tr [class.comprado]="item.depositado">
+
+          <td class="nome">{{ item.nome | titlecase }}</td>
+
+          <td>{{ item.quantidade }}</td>
+
+          <td>
+            <span class="tag">{{ item.categoria }}</span>
+          </td>
+
+          <td class="acoes">
+            <button
+              class="alternar"
+              [class.ativo]="item.depositado"
+              (click)="alternarItem.emit(item)"
+            >
+              @if (item.depositado) {
+                ✓ Depositado
+              } @else {
+                Não depositado
+              }
+            </button>
+
+            <button
+              class="remover"
+              (click)="removerItem.emit(item)"
+              aria-label="Remover"
+            >
+              ✕
+            </button>
+          </td>
+
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4" class="vazio">
+            🌱 Sua lista está vazia.
+          </td>
+        </tr>
+      }
+    </tbody>
+
+  </table>
+</div>

@@ -1,11 +1,36 @@
-<main class="app">
-  <header>
-    <h1>Painel de Controle</h1>
-    <p>Olá, {{ username }}!</p>
-    <a routerLink="/lixo">Gerenciador de Lixo</a>
-    |
-    <a routerLink="/gastos">Gastos (energia/água)</a>
-    |
-    <a routerLink="/metas">Metas</a>
-  </header>
+<main class="home">
+  <section class="hero">
+    <span class="hero-tag">🌿 Painel</span>
+    <h1>Olá, {{ username }}!</h1>
+    <p>O que vamos cuidar hoje pelo planeta?</p>
+  </section>
+
+  <section class="cards">
+    <a routerLink="/lixo" class="item">
+      <div class="icon icon-lixo">♻️</div>
+      <div class="info">
+        <h2>Gerenciador de Lixo</h2>
+        <p>Coleta e reciclagem</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a routerLink="/gastos" class="item">
+      <div class="icon icon-gastos">💧</div>
+      <div class="info">
+        <h2>Gastos</h2>
+        <p>Energia e água</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a routerLink="/metas" class="item">
+      <div class="icon icon-metas">🎯</div>
+      <div class="info">
+        <h2>Metas</h2>
+        <p>Seus objetivos</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </section>
 </main>

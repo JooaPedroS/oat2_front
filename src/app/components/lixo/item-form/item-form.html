@@ -1,7 +1,7 @@
 <form class="form" (ngSubmit)="adicionar()">
-  <input [(ngModel)]="novoItem" name="nome" placeholder="O que falta adicionar" />
+  <input [(ngModel)]="novoItem" name="nome" placeholder="O que falta adicionar" autocomplete="off" />
 
-  <input [(ngModel)]="novoQuant" name="quantidade" type="number" placeholder="Quantidade" />
+  <input [(ngModel)]="novoQuant" name="quantidade" type="number" min="1" placeholder="Quantidade" />
 
   <select [(ngModel)]="novaCat" name="categoria">
     <option value="">Escolha uma opção</option>
@@ -14,6 +14,5 @@
     <option value="Óleo">Óleo</option>
   </select>
 
-  <button type="submit" class="btn-subtle theme-success">Adicionar</button>
-
+  <button type="submit" class="btn-add">+ Adicionar</button>
 </form>
