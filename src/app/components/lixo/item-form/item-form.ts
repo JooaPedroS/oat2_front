@@ -16,8 +16,10 @@ export class ItemForm {
   adicionarItem = output<Item>();
 
   adicionar() {
-    if (this.novaCat === '') return;
-    if (this.novoItem.trim() === '') return;
+    if (this.novoQuant <= 0 && this.novaCat === '' && this.novoItem.trim() === '') return alert("Adicione as informações que faltam");
+    if (this.novaCat === '') return alert('Categoria não selecionada');
+    if (this.novoItem.trim() === '') return alert('Nome não adicionado');
+    if (this.novoQuant <= 0) return alert('Quantidade não adicionada');
 
     const novo: Item = {
       nome: this.novoItem,
