@@ -16,33 +16,33 @@ export const routes: Routes = [
     component: MainLayout,
     children: [
       // Públicas (sem guard)
-      { path: 'register', component: Register, title: 'Criar conta', canActivate: [guestGuard]},
-      { path: 'sobre', component: Sobre, title: 'Sobre' },
+      { path: 'register', component: Register, title: 'Criar conta | Oat', canActivate: [guestGuard]},
+      { path: 'sobre', component: Sobre, title: 'Sobre | Oat' },
 
       // Só com nome salvo
       {
         path: '',
         component: Home,
-        title: 'Página inicial',
+        title: 'Página inicial | Oat',
         canActivate: [userGuard],
         pathMatch: 'full',
       },
       {
         path: 'lixo',
         component: Lixo,
-        title: "Gerenciador de lixo",
+        title: "Gerenciador de lixo | Oat",
         canActivate: [userGuard],
       },
       {
         path: 'gastos',
         component: Gastos,
-        title: "Gerenciador de gastos",
+        title: "Gerenciador de gastos | Oat",
         canActivate: [userGuard],
       },
 
-      { path: 'perfil', component: Perfil, title: 'Meu perfil', canActivate: [userGuard] },
+      { path: 'perfil', component: Perfil, title: 'Meu perfil | Oat', canActivate: [userGuard] },
 
-      { path: '**', component: NotFound, title: 'Página não encontrada' },
+      { path: '**', component: NotFound, title: 'Página não encontrada | Oat' },
     ],
   },
 ];

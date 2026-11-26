@@ -6,6 +6,7 @@ export interface Item {
   categoria: string;
   depositado: boolean;
   visivel: boolean;
+  depositadoEm?: string;
 }
 
 @Injectable({
@@ -13,6 +14,7 @@ export interface Item {
 })
 export class ItemService {
   private chave = 'itens';
+  private chaveMeta = 'meta-semanal';
 
   private itensIniciais: Item[] = [
     // para testes, fiquei com preguiça de tirar do código, então zerei a lista de itens iniciais
@@ -74,5 +76,14 @@ export class ItemService {
     if (lista.length === 0) return 0;
 
     return lista.filter((i) => i.depositado).length / lista.length;
+  }
+
+  buscarMeta(): number {
+    const n = Number(localStorage.getItem(this.chaveMeta));
+    return n > 0 ? n : 10;
+  }
+
+  salvarMeta(valor: number): void {
+    localStorage.setItem(this.chaveMeta, String(valor));
   }
 }
