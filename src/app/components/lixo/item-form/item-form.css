@@ -1,0 +1,30 @@
+.btn-subtle {
+    color:rgb(255, 255, 255);
+    margin-left: 15px;
+    background-color: #00a529;
+    
+}
+.btn-subtle:hover{
+    background-color: #00d335;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    margin: 20px 0;
+}
+
+form input, form select{
+    background-color: #00a529;
+    color:#f4f4f4;
+}
+
+form input::placeholder{
+    color:#7fff9f
+}
+
+form select:hover{
+    background-color: #00d335;
+}

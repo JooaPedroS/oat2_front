@@ -16,7 +16,7 @@
         <td class="categoria">{{ item.categoria }}</td>
 
         <td>
-          <button (click)="alternarItem.emit(item)">
+          <button class="alternar" (click)="alternarItem.emit(item)">
             @if (item.depositado) {
               Depositado
             } @else {

@@ -1,6 +1,8 @@
 .lista {
   width: 80%;
   border-collapse: collapse;
+ margin: 20px auto;
+  
 }
 .lista th,
 .lista td {
@@ -10,11 +12,19 @@
 }
 
 .lista th {
-  background-color: #f4f4f4;
+  background-color: #00a529;
   font-weight: bold;
 }
 
 .lista h3 {
     text-align: center;
     background-color: black;
+}
+
+.alternar, .remover{
+   background-color: #00a529;
+}
+
+.nome,.preco,.categoria{
+  color:#00a529;
 }
