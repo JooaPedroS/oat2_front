@@ -236,14 +236,9 @@
   gap: .75rem;
 }
 
-.rotulo {
-  font-size: .9rem;
-  color: #365c46;
-}
-
 .trilho {
   height: 12px;
-  background: #e3efe8;
+  background: #365c46;
   border-radius: 20px;
   overflow: hidden;
 }

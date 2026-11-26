@@ -2,7 +2,7 @@
   <!-- Cabeçalho -->
   <header class="hero">
     <div>
-      <span class="hero-tag"><i class="fa-solid fa-recycle"></i> EcoApp</span>
+      <span class="hero-tag"><i class="fa-solid fa-recycle"></i> Gerenciador de Lixo</span>
       <h1>Lista de Reciclagem</h1>
       <p>Acompanhe seus itens recicláveis.</p>
     </div>
@@ -98,7 +98,7 @@
 
   <!-- Filtros e lista -->
   <section class="panel">
-    <h2 class="titulo">📋 Seus itens</h2>
+    <h2 class="titulo"><i class="fa-solid fa-list"></i> Seus itens</h2>
 
     <div class="filtros" role="group" aria-label="Filtrar por categoria">
       <button
@@ -115,8 +115,6 @@
           type="button"
           class="chip"
           [class.ativo]="filtro() === c.chave"
-          [style.--cor]="c.cor"
-          [style.--fundo]="c.fundo"
           (click)="filtro.set(c.chave)"
         >
           <span class="rotulo">
@@ -134,7 +132,6 @@
     />
   </section>
 
-
   <!-- Gráfico -->
   <section class="panel">
     <h2 class="titulo"><i class="fa-solid fa-graph"></i> Itens por categoria</h2>
@@ -142,11 +139,12 @@
     <div class="grafico">
       @for (l of grafico(); track l.chave) {
         <div class="linha">
-          <span class="rotulo"> <span class="icone" [innerHTML]="l.icone"></span>
-           {{ l.nome }} </span>
+          <span class="rotulo">
+            <span class="icone" [innerHTML]="l.icone"></span> {{ l.nome }}
+          </span>
 
           <div class="trilho">
-            <div class="fill" [style.width.%]="l.pct" [style.background]="l.cor"></div>
+            <div class="fill" [style.width.%]="l.pct"></div>
           </div>
 
           <span class="valor">{{ l.qtd }}</span>
@@ -156,5 +154,4 @@
       }
     </div>
   </section>
-
 </main>
