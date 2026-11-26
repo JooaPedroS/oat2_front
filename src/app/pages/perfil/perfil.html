@@ -1,7 +1,29 @@
-<main class="app">
+<main class="perfilInicio">
   <header>
-    <h1>Meu perfil</h1>
-    <p>{{ username }}</p>
-    <p>{{ depositados }}</p>
+    <div class="avatar">{{ username[0] }}</div>
+    <span class="badge">Meu perfil</span>
+    <h1>{{ username }}</h1>
+    <p>{{ email }}</p>
   </header>
+
+  <section class="stats">
+    <div class="stat">
+      <strong>{{ depositados }}</strong>
+      <span>Lixo depositado</span>
+    </div>
+    <div class="stat">
+      <strong>{{ metasConcluidas }}</strong>
+      <span>Metas concluídas</span>
+    </div>
+    <div class="stat">
+      <strong>{{ nivel }}</strong>
+      <span>Nível</span>
+    </div>
+  </section>
+
+  <section class="acoes">
+    <button class="btn btn-secundario" (click)="sair()">Sair</button>
+  </section>
+
+ 
 </main>

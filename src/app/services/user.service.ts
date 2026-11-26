@@ -18,4 +18,8 @@ export class UserService {
     // sobrescreve o username
     localStorage.setItem(this.key, name.trim());
   }
+
+  clear() {
+  localStorage.removeItem('username');
+}
 }
