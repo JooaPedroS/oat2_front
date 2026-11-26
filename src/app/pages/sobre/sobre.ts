@@ -12,7 +12,7 @@ export class Sobre{
   // Dados da dupla: troque pelos nomes e usuários reais de vocês
   integrantes = [
     { nome: 'João Pedro S.', papel: 'Desenvolvedor', github: 'JooaPedroS' },
-    { nome: 'Nome do(a) colega', papel: 'Desenvolvedor(a)', github: 'usuario-github' },
+    { nome: 'João Victor Alves Coelho', papel: 'Desenvolvedor', github: 'JoaoVictorAlvesCoelho' },
   ];
 
   repositorio = 'https://github.com/JooaPedroS/oat2_front';
