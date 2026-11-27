@@ -8,6 +8,7 @@ import { ItemForm } from '../../components/lixo/item-form/item-form';
 import { ItemList } from '../../components/lixo/item-list/item-list';
 
 import { RouterLink } from '@angular/router';
+import { AvisoService } from '../../services/aviso.service';
 
 @Component({
   selector: 'app-lixo',
@@ -23,6 +24,7 @@ export class Lixo {
     os componentes-filho são apenas o form e a tabela. a lógica inteira fica no lixo e o service salva e busca
   */
   private itemService = inject(ItemService);
+  private avisos = inject(AvisoService)
   hoje = new Date();
   categorias = Categorias;
 
@@ -61,16 +63,17 @@ export class Lixo {
     this.itemService.salvar(this.itens());
   }
 
-  remover(alvo: Item) {
-    // ele vai remover se o item não for depositado
-    // se não for depositado, ele vai ficar oculto (assim o item não vai ser apagado e poderá ser gerado um relatório depois)
+  async remover(alvo: Item) {
+    if (!(await this.avisos.confirmar('Remover este item?', alvo.nome))) return;
+
     this.itens.update((lista) =>
       lista
         .map((i) => (i === alvo && i.depositado ? { ...i, visivel: false } : i))
         .filter((i) => i !== alvo || i.depositado),
     );
-
     this.itemService.salvar(this.itens());
+
+    this.avisos.sucesso('Registro removido com sucesso');
   }
 
   itensFiltrados = computed(() => {
@@ -84,7 +87,10 @@ export class Lixo {
   // Usa this.itens() e não this.visiveis() de propósito: o item depositado que
   // foi "removido" só ficou oculto, e ele continua contando no impacto.
   impacto = computed(() => {
-    let kg = 0, co2 = 0, papelKg = 0, agua = 0;
+    let kg = 0,
+      co2 = 0,
+      papelKg = 0,
+      agua = 0;
 
     for (const i of this.itens()) {
       if (!i.depositado) continue;
@@ -151,5 +157,4 @@ export class Lixo {
     const maior = Math.max(1, ...linhas.map((l) => l.qtd));
     return linhas.map((l) => ({ ...l, pct: (l.qtd / maior) * 100 }));
   });
-
 }

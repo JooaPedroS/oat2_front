@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from '../../components/header/header';
+import { Aviso } from '../../components/aviso/aviso';
 
 
 /*
@@ -9,7 +10,7 @@ import { Header } from '../../components/header/header';
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterOutlet, Header],
+  imports: [RouterOutlet, Header, Aviso],
   templateUrl: './main-layout.html',
 })
 export class MainLayout {}
