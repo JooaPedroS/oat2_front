@@ -17,82 +17,9 @@
     <span>Total: {{ total() }} itens</span>
   </section>
 
-  <!-- Impacto ambiental -->
-  <section class="panel">
-    <h2 class="titulo"><i class="fa-solid fa-earth"></i> Seu impacto</h2>
-
-    <div class="impacto">
-      <div class="imp">
-        <strong>{{ impacto().kg | number: '1.0-1' }} kg</strong>
-        <span>Reciclados</span>
-      </div>
-
-      <div class="imp">
-        <strong>{{ impacto().co2 | number: '1.0-1' }} kg</strong>
-        <span>De CO₂ evitados</span>
-      </div>
-
-      <div class="imp">
-        <strong>{{ impacto().arvores | number: '1.0-1' }}</strong>
-        <span>Árvores poupadas</span>
-      </div>
-
-      <div class="imp">
-        <strong>{{ impacto().agua | number: '1.0-0' }} L</strong>
-        <span>De água protegidos</span>
-      </div>
-    </div>
-
-    <p class="nota">Estimativa com valores médios, considerando apenas os itens já depositados.</p>
+  <section class="metas">
+    <a class="btn btn-success" routerLink="/metas">Ir para Metas</a>
   </section>
-
-  <!-- Meta semanal -->
-  <section class="panel meta" [class.batida]="metaBatida()">
-    <div class="meta-topo">
-      <div>
-        <h2 class="titulo"><i class="fa-solid fa-bullseye"></i> Meta da semana</h2>
-
-        <p class="meta-msg">
-          @if (metaBatida()) {
-            Meta batida! Parabéns, o planeta agradece!
-          } @else {
-            Faltam {{ faltam() }} {{ faltam() === 1 ? 'item' : 'itens' }}
-            para bater a meta.
-          }
-        </p>
-      </div>
-
-      <div class="stepper" aria-label="Meta semanal">
-        <button
-          type="button"
-          (click)="alterarMeta(-1)"
-          [disabled]="meta() <= 1"
-          aria-label="Diminuir meta"
-        >
-          −
-        </button>
-
-        <span>{{ meta() }}</span>
-
-        <button type="button" (click)="alterarMeta(1)" aria-label="Aumentar meta">+</button>
-      </div>
-    </div>
-
-    <div
-      class="barra"
-      role="progressbar"
-      [attr.aria-valuenow]="progressoMeta() * 100"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      <div class="barra-fill" [style.width.%]="progressoMeta() * 100"></div>
-    </div>
-
-    <p class="nota">
-      {{ feitosNaSemana() }} de {{ meta() }} itens depositados desde segunda-feira.
-    </p>
-  </section>
-
   <!-- Formulário -->
   <app-item-form (adicionarItem)="adicionar($event)" />
 

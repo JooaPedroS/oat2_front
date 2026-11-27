@@ -9,7 +9,7 @@
 
 /* Topo */
 .hero {
-  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  background: linear-gradient(90deg, #113519, #3e9943);
   color: #fff;
   border-radius: 20px;
   padding: 2rem;
@@ -113,7 +113,7 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2d6a4f, #40916c);
+  background-color: #e6b03d;
   color: #fff;
   font-size: 1.3rem;
   font-weight: 700;
@@ -129,41 +129,11 @@
 }
 .pessoa-info a:hover { text-decoration: underline; }
 
-/* Como executar */
-.passos {
-  list-style: none;
-  counter-reset: passo;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: .75rem;
-}
-.passos li {
-  counter-increment: passo;
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  flex-wrap: wrap;
-}
-.passos li::before {
-  content: counter(passo);
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #2d6a4f;
-  color: #fff;
-  font-size: .85rem;
-  font-weight: 600;
-  flex-shrink: 0;
-}
 .desc { color: #3d5247; min-width: 170px; }
 code {
   background: #f1f8f4;
   border: 1px solid #d8eadf;
-  color: #1b4332;
+  color: #113519;
   padding: .25rem .6rem;
   border-radius: 8px;
   font-size: .85rem;
@@ -178,7 +148,7 @@ code {
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
-  background: #1b4332;
+  background: #113519;
   color: #fff;
   border-radius: 16px;
   padding: 1.5rem;

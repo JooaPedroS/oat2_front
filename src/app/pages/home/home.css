@@ -5,7 +5,7 @@
 }
   
 .hero {
-  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  background: linear-gradient(90deg, #113519, #3e9943);
   color: white;
   padding: 2.5rem 2rem;
   border-radius: 20px;
@@ -46,7 +46,7 @@
   border: 1px solid #e3efe8;
   border-radius: 16px;
   text-decoration: none;
-  color: #1f2d27;
+  color: #113519;
   transition: .2s;
 }
 
@@ -85,7 +85,7 @@
 
 .arrow {
   font-size: 1.25rem;
-  color: #2d6a4f;
+  color: #113519;
   transition: .2s;
 }
 

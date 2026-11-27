@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
 export class Sobre{
   // Dados da dupla: troque pelos nomes e usuários reais de vocês
   integrantes = [
-    { nome: 'João Pedro S.', papel: 'Desenvolvedor', github: 'JooaPedroS' },
+    { nome: 'João Pedro Oliveira de Sousa.', papel: 'Desenvolvedor', github: 'JooaPedroS' },
     { nome: 'João Victor Alves Coelho', papel: 'Desenvolvedor', github: 'JoaoVictorAlvesCoelho' },
   ];
 
@@ -21,8 +21,6 @@ export class Sobre{
   funcionalidades = [
     { icone: '♻️', titulo: 'Lista de reciclagem', desc: 'Adicione, conclua e remova itens que precisam ser descartados.' },
     { icone: '💾', titulo: 'Dados salvos', desc: 'A lista continua lá mesmo depois de recarregar ou fechar o navegador.' },
-    { icone: '🗺️', titulo: 'Mapa de coleta', desc: 'Mostra onde descartar cada tipo de material corretamente.' },
-    { icone: '💧', titulo: 'Gastos', desc: 'Acompanhe o consumo de energia e água.' },
     { icone: '🎯', titulo: 'Metas', desc: 'Defina objetivos sustentáveis e acompanhe o progresso.' },
     { icone: '📊', titulo: 'Progresso', desc: 'Percentual de itens já depositados, atualizado em tempo real.' },
   ];

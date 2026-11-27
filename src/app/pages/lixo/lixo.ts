@@ -83,56 +83,6 @@ export class Lixo {
       : this.itens().filter((i) => infoCategoria(i.categoria).chave === f);
   });
 
-  // ---------- Impacto ambiental ----------
-  // Usa this.itens() e não this.visiveis() de propósito: o item depositado que
-  // foi "removido" só ficou oculto, e ele continua contando no impacto.
-  impacto = computed(() => {
-    let kg = 0,
-      co2 = 0,
-      papelKg = 0,
-      agua = 0;
-
-    for (const i of this.itens()) {
-      if (!i.depositado) continue;
-      const c = infoCategoria(i.categoria);
-      const peso = i.quantidade * c.kgPorItem;
-      kg += peso;
-      co2 += peso * c.co2PorKg;
-      if (c.chave === 'papel') papelKg += peso;
-      if (c.chave === 'oleo') agua += i.quantidade * 25000; // 1 L de óleo ≈ 25 mil L de água
-    }
-
-    return { kg, co2, arvores: papelKg / 50, agua }; // ~50 kg de papel ≈ 1 árvore
-  });
-
-  // ---------- Meta semanal ----------
-  // A semana começa na segunda-feira, à meia-noite
-  private inicioDaSemana(): number {
-    const d = new Date();
-    d.setHours(0, 0, 0, 0);
-    d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
-    return d.getTime();
-  }
-
-  feitosNaSemana = computed(() => {
-    const inicio = this.inicioDaSemana();
-    return this.itens().filter(
-      (i) => i.depositado && i.depositadoEm && new Date(i.depositadoEm).getTime() >= inicio,
-    ).length;
-  });
-
-  faltam = computed(() => Math.max(0, this.meta() - this.feitosNaSemana()));
-  metaBatida = computed(() => this.feitosNaSemana() >= this.meta());
-  progressoMeta = computed(() => Math.min(1, this.feitosNaSemana() / this.meta()));
-
-  alterarMeta(delta: number) {
-    const nova = Math.max(1, this.meta() + delta);
-    this.meta.set(nova);
-    this.itemService.salvarMeta(nova);
-  }
-
-  // ---------- Dica ----------
-  // Com uma categoria filtrada, mostra a dica dela. Em "Todos", é a dica do dia.
   dica = computed(() => {
     const f = this.filtro();
     if (f !== 'todos') {

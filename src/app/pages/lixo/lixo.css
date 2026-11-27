@@ -14,7 +14,7 @@
   align-items: center;
   gap: 1rem;
   padding: 2rem;
-  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  background: linear-gradient(90deg, #113519, #3e9943);
   color: #fff;
   border-radius: 20px;
 }
@@ -61,14 +61,14 @@
   gap: 1rem;
   flex-wrap: wrap;
   padding: 1.25rem;
-  background: #d8f3dc;
-  border: 1px solid #a8c5b3;
+  background: #e1eed3;
+  border: 1px solid #3e9943;
   border-radius: 12px;
 }
 
 .resumo strong {
   font-size: 1.2rem;
-  color: #1b4332;
+  color: #113519;
 }
 
 /* Painéis */
@@ -84,47 +84,7 @@
   margin: 0 0 1.25rem;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1b4332;
-}
-
-/* Impacto ambiental */
-.impacto {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: .75rem;
-}
-
-.imp {
-  display: flex;
-  flex-direction: column;
-  gap: .35rem;
-  padding: 1rem;
-  background: #f1f8f4;
-  border: 1px solid #d8eadf;
-  border-radius: 12px;
-}
-
-.imp strong {
-  font-size: 1.4rem;
-  color: #1b4332;
-}
-
-.imp span {
-  font-size: .85rem;
-  color: #526b5c;
-}
-
-/* Meta semanal */
-.meta-topo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.meta-msg {
-  margin: 0;
-  color: #526b5c;
+  color: #113519;
 }
 
 .stepper {
@@ -176,15 +136,6 @@
   background: #2d6a4f;
   border-radius: 20px;
   transition: width .3s;
-}
-
-.meta.batida {
-  border-color: #2d6a4f;
-  background: #f5faf6;
-}
-
-.meta.batida .barra-fill {
-  background: #1b4332;
 }
 
 .nota {
@@ -255,7 +206,7 @@
   color: #1b4332;
 }
 
-/* Responsivo */
+/* Responsividade */
 @media (max-width: 700px) {
   .hero {
     align-items: flex-start;
@@ -265,15 +216,6 @@
 
   .hero h1 {
     font-size: 1.6rem;
-  }
-
-  .impacto {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .meta-topo {
-    align-items: flex-start;
-    flex-direction: column;
   }
 
   .linha {
@@ -289,18 +231,6 @@
 
   .panel {
     padding: 1rem;
-  }
-
-  .impacto {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .imp {
-    padding: .75rem;
-  }
-
-  .imp strong {
-    font-size: 1.15rem;
   }
 
   .linha {

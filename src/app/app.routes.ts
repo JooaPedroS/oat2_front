@@ -7,8 +7,8 @@ import { Sobre } from './pages/sobre/sobre';
 import { Register } from './pages/register/register';
 import { Perfil } from './pages/perfil/perfil';
 import { NotFound } from './pages/not-found/not-found';
-import { Gastos } from './pages/gastos/gastos';
 import { Home } from './pages/home/home';
+import { Metas } from './pages/metas/metas';
 
 export const routes: Routes = [
   {
@@ -16,33 +16,33 @@ export const routes: Routes = [
     component: MainLayout,
     children: [
       // Públicas (sem guard)
-      { path: 'register', component: Register, title: 'Criar conta | Oat', canActivate: [guestGuard]},
-      { path: 'sobre', component: Sobre, title: 'Sobre | Oat' },
+      { path: 'register', component: Register, title: 'Criar conta | EcoApp', canActivate: [guestGuard]},
+      { path: 'sobre', component: Sobre, title: 'Sobre | EcoApp' },
 
       // Só com nome salvo
       {
         path: '',
         component: Home,
-        title: 'Página inicial | Oat',
+        title: 'Página inicial | EcoApp',
         canActivate: [userGuard],
         pathMatch: 'full',
       },
       {
         path: 'lixo',
         component: Lixo,
-        title: "Gerenciador de lixo | Oat",
+        title: "Gerenciador de lixo | EcoApp",
         canActivate: [userGuard],
       },
       {
-        path: 'gastos',
-        component: Gastos,
-        title: "Gerenciador de gastos | Oat",
+        path: 'metas',
+        component: Metas,
+        title: "Gerenciador de Metas | EcoApp",
         canActivate: [userGuard],
       },
 
-      { path: 'perfil', component: Perfil, title: 'Meu perfil | Oat', canActivate: [userGuard] },
+      { path: 'perfil', component: Perfil, title: 'Meu perfil | EcoApp', canActivate: [userGuard] },
 
-      { path: '**', component: NotFound, title: 'Página não encontrada | Oat' },
+      { path: '**', component: NotFound, title: 'Página não encontrada | EcoApp' },
     ],
   },
 ];
