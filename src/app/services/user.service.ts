@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class UserService {
   private key = 'username';
 
-  exists(): boolean { 
+  exists(): boolean {
     // checa se username existe
     return !!localStorage.getItem(this.key);
   }
@@ -20,6 +20,6 @@ export class UserService {
   }
 
   clear() {
-  localStorage.removeItem('username');
-}
+    localStorage.removeItem('username');
+  }
 }
